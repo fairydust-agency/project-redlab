@@ -1,0 +1,14 @@
+{
+  "name": "redlab-project",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fairydust-agency/project-redlab.git"
+  },
+  "author": "serapath <dev@serapath.de> (http://www.github.com/serapath)",
+  "bugs": {
+    "url": "https://github.com/fairydust-agency/project-redlab/issues"
+  },
+  "homepage": "https://github.com/fairydust-agency/project-redlab#readme"
+}
