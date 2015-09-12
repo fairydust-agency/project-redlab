@@ -1,6 +1,11 @@
 {
   "name": "redlab-project",
   "scripts": {
+    "start": "npm run __www & npm run __watch",
+    "bundle": "browserify SOURCE/browser.js -t babelify -o SOURCE/public/bundle.js",
+    "preview": "watchify SOURCE/browser.js -t babelify -o SOURCE/public/bundle.js -dv & ecstatic --port 8001",
+    "__www": "ecstatic --port 8000 --root SOURCE/public/",
+    "__watch": "watchify SOURCE/browser.js -t babelify -p browserify-hmr -o SOURCE/public/bundle.js -dv"
   },
   "repository": {
     "type": "git",
@@ -10,5 +15,23 @@
   "bugs": {
     "url": "https://github.com/fairydust-agency/project-redlab/issues"
   },
-  "homepage": "https://github.com/fairydust-agency/project-redlab#readme"
+  "homepage": "https://github.com/fairydust-agency/project-redlab#readme",
+  "dependencies": {
+    "catch-links": "^2.0.0",
+    "jss": "^2.2.1",
+    "jss-cli": "serapath/jss-cli",
+    "main-loop": "^3.2.0",
+    "routes": "^2.1.0",
+    "single-page-hash": "^1.0.0",
+    "ud": "^2.0.1",
+    "virtual-dom": "^2.1.1",
+    "virtual-hyperscript-hook": "^1.0.0"
+  },
+  "devDependencies": {
+    "babelify": "^6.3.0",
+    "browserify": "^11.0.1",
+    "browserify-hmr": "^0.2.2",
+    "ecstatic": "^0.8.0",
+    "watchify": "^3.3.1"
+  }
 }
