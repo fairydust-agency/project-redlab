@@ -42,7 +42,7 @@ function updateManager (m, xhr, hJSON, h, tmp) {
       $app  = this.response,
       log(),
       localStorage.setItem($appkey, $app),
-      localStorage.setItem($etagkey, $etag),
+      localStorage.setItem($etagkey, $etag)
       // @TODO: write better update manager
       // confirm('new version - update now?') ? location.href=location.href : 0
     ) : hJSON['etag'] !== $etag ? updateManager('GET') : 0
