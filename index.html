@@ -10,6 +10,7 @@ offer to update the app now or later.
 var $appkey  = 'app("'+$appurl+'").app'
 var $etagkey = 'app("'+$appurl+'").etag'
 var $app     = localStorage.getItem($appkey)||''
+var fresh    = $app === '' ? true : false,
 var $etag    = localStorage.getItem($etagkey)
 log()
 try {
@@ -42,9 +43,9 @@ function updateManager (m, xhr, hJSON, h, tmp) {
       $app  = this.response,
       log(),
       localStorage.setItem($appkey, $app),
-      localStorage.setItem($etagkey, $etag)
+      localStorage.setItem($etagkey, $etag),
       // @TODO: write better update manager
-      // confirm('new version - update now?') ? location.href=location.href : 0
+      (fresh ? location.href=location.href : 0)
     ) : hJSON['etag'] !== $etag ? updateManager('GET') : 0
   }
   xhr.send()

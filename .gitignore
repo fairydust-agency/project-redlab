@@ -1,5 +1,4 @@
-node_modules/
-!SOURCE/node_modules/
-npm-debug.log
-SPECIFICATION/
 @TODO/
+node_modules/
+!source/node_modules/
+npm-debug.log

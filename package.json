@@ -1,11 +1,10 @@
 {
   "name": "redlab-project",
+  "version": "0.1.2",
   "scripts": {
-    "start": "npm run __www & npm run __watch",
-    "bundle": "browserify SOURCE/browser.js -t babelify -o SOURCE/public/bundle.js",
-    "preview": "watchify SOURCE/browser.js -t babelify -o SOURCE/public/bundle.js -dv & ecstatic --port 8001",
-    "__www": "ecstatic --port 8000 --root SOURCE/public/",
-    "__watch": "watchify SOURCE/browser.js -t babelify -p browserify-hmr -o SOURCE/public/bundle.js -dv"
+    "start": "ecstatic --root public/browser & npm run watch",
+    "watch": "watchify source/index.js -p [ browserify-hmr -u http://$(my-local-ip):3123 ] -p ghostmodeify -t babelify -o public/browser/bundle.js -dv",
+    "bundle": "browserify source/index.js -t babelify -o public/browser/bundle.js -dv"
   },
   "repository": {
     "type": "git",
@@ -15,11 +14,12 @@
   "bugs": {
     "url": "https://github.com/fairydust-agency/project-redlab/issues"
   },
-  "homepage": "https://github.com/fairydust-agency/project-redlab#readme",
+  "preview": "http://fairydust.agency/project-redlab/",
+  "homepage": "http://www.theredlab.com/",
   "dependencies": {
     "catch-links": "^2.0.0",
-    "jss": "^2.2.1",
-    "jss-cli": "serapath/jss-cli",
+    "jss": "^2.3.4",
+    "jss-cli": "^1.1.0",
     "main-loop": "^3.2.0",
     "routes": "^2.1.0",
     "single-page-hash": "^1.0.0",
@@ -29,9 +29,10 @@
   },
   "devDependencies": {
     "babelify": "^6.3.0",
-    "browserify": "^11.0.1",
+    "browserify": "^11.1.0",
     "browserify-hmr": "^0.2.2",
-    "ecstatic": "^0.8.0",
-    "watchify": "^3.3.1"
+    "ecstatic": "^1.0.1",
+    "ghostmodeify": "^0.1.1",
+    "watchify": "^3.4.0"
   }
 }

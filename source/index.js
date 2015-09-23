@@ -29,16 +29,22 @@ var STATE = ud.defonce(module, function initialize (){
     **************************************************************************/
     theme     : {
       colors    : {
-        grey      : '#A4A8A9',
-        lightcyan : '#85C0BE',
-        darkcyan  : '#3D8C87',
-        lightrose : '#CF5578',
-        rose      : '#C32C59',
-        white     : '#FFFFFF',
-        darkrose  : '#962043',
-        redrose   : '#E72849',
-        orangerose: '#DD8770'
-      }
+        grey        : 'hsla(0  , 0%  , 69% , 1   )',
+        cyangrey    : 'hsla(166, 36% , 79% , 1   )',
+        cyantrans   : 'hsla(182, 42% , 68% , 0.6 )',
+        lightcyan   : 'hsla(187, 47% , 76% , 1   )',
+        cyanpure    : 'hsla(189, 52% , 70% , 1   )',
+        cyandark    : 'hsla(180, 41% , 64% , 1   )',
+        orange      : 'hsla(19 , 80% , 48% , 1   )',
+        darkorange  : 'hsla(11 , 81% , 49% , 1   )',
+        roselight   : 'hsla(358, 84% , 47% , 0.71)',
+        rose        : 'hsla(0  , 78% , 56% , 1   )',
+        red         : 'hsla(3  , 85% , 48% , 1   )',
+        magenta     : 'hsla(350, 78% , 50% , 1   )',
+        white       : 'hsla(255, 100%, 100%, 1   )',
+        black       : 'hsla(0  , 0%  , 0%  , 1   )',
+      },
+      font      :  'Helvetica Neue Ultra Light'
     },
     /**************************************************************************
       UI STATE
