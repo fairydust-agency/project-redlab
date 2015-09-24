@@ -1,0 +1,60 @@
+<body><script>
+/* SET `$appurl` as argument to the IIFE
+to load any javascript (localstorage size limit 5mb)
+The first page visit will load the whole script, follow-up visits
+load the cached script right away and if a new version is available,
+offer to update the app now or later.
+(The caching only works if the server sends `header.etag`)
+*/
+;(function($appurl){
+var $appkey  = 'app("'+$appurl+'").app'
+var $etagkey = 'app("'+$appurl+'").etag'
+var $app     = localStorage.getItem($appkey)||''
+var fresh    = $app === '' ? true : false
+var $etag    = localStorage.getItem($etagkey)
+log()
+try {
+  $app && start($app)
+  updateManager('HEAD')
+} catch (e) {
+  localStorage.removeItem($appkey)
+  localStorage.removeItem($etagkey)
+  start(undefined, $appurl)
+}
+function start (script, url, s) {
+  document.body.innerHTML = ''
+  s=document.createElement('script')
+  if (url) s.setAttribute('src',url)
+  else s.innerHTML=script
+  document.body.appendChild(s)
+}
+function updateManager (m, xhr, hJSON, h, tmp) {
+  xhr=new XMLHttpRequest()
+  xhr.open(m,$appurl)
+  xhr.onload=function(response){
+    hJSON={}
+    h=xhr.getAllResponseHeaders()
+    h.match(/([^\n\r:]+):([^\n\r]+)/g).forEach(function(item){
+      tmp=item.split(': ')
+      hJSON[tmp[0]]=tmp[1]
+    })
+    m === 'GET' ? (
+      $etag = hJSON.etag,
+      $app  = this.response,
+      log(),
+      localStorage.setItem($appkey, $app),
+      localStorage.setItem($etagkey, $etag),
+      // @TODO: write better update manager
+      (fresh ? location.href=location.href : 0)
+    ) : hJSON['etag'] !== $etag ? updateManager('GET') : 0
+  }
+  xhr.send()
+}
+function log () {
+  console.log(
+    '\n\n\nTotal Application Size: ~'+parseInt($app.length/1024)+
+    'kb  <Version='+$etag+'>\n\n\n'
+  )
+}
+})('public/browser/bundle.js')
+</script></body>
