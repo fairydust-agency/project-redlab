@@ -54,6 +54,16 @@ var STATE = ud.defonce(module, function initialize (){
       DATA STATE
     **************************************************************************/
     data      : {
+      submenu   : [{
+        link  : '/#products/learning-experience',
+        name  : 'Learning Experience'
+      },{
+        link  : '/#products/female-leadership',
+        name  : 'Female Leadership'
+      },{
+        link  : '/#products/book',
+        name  : 'Buch'
+      }],
       counter   : 0,
       messages  : []
     }
@@ -126,7 +136,10 @@ var ENGINE = ud.defonce(module, function () {
   clearTimeout(id)
   var loop = main(STATE, RENDER, vdom)
   document.title = 'The Red Lab'
-  document.body.style.margin = 0 // CSS RESET
+   // CSS RESET
+  document.body.style.margin    = 0
+  document.body.style.backgroundColor = '#000'
+  // UPDATE DOM
   document.body.appendChild(loop.target)
   return loop
 }, 'ENGINE')
