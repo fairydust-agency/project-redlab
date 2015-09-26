@@ -2,17 +2,18 @@
 var ud          = require('ud')
 var vdom        = require('virtual-dom')
 var h           = require('virtual-hyperscript-hook')(require('virtual-dom/h'))
-var jss         = require('jss')
-var css2jss     = require('jss-cli/lib/cssToJss')
 var main        = require('main-loop')
 var singlepage  = require('single-page-hash')
 var catchlinks  = require('catch-links')
 
 // CUSTOM
+var styling     = require('_styling')
 var ROUTER      = require('_router')
+var s
 
 var STATE = ud.defonce(module, function initialize (){
-  return {
+
+  var state = {
     /**************************************************************************
       UPDATE VIEW through NAVIGATION => shift perspective
     **************************************************************************/
@@ -44,7 +45,9 @@ var STATE = ud.defonce(module, function initialize (){
         white       : 'hsla(255, 100%, 100%, 1   )',
         black       : 'hsla(0  , 0%  , 0%  , 1   )',
       },
-      font      :  'Helvetica Neue Ultra Light'
+      font      : {
+        hnul        : 'HelveticaNeue-Light'
+      }
     },
     /**************************************************************************
       UI STATE
@@ -64,10 +67,17 @@ var STATE = ud.defonce(module, function initialize (){
         link  : '/#products/book',
         name  : 'Buch'
       }],
-      counter   : 0,
-      messages  : []
+      counter   : 0
     }
   }
+  s = s ? s : styling(`
+    @font-face {
+      font-family : "${state.theme.font.hnul}";
+      src         : url(assets/${state.theme.font.hnul}.woff);
+    }
+  `)
+
+  return state
 }, 'STATE')
 
 var router = ud.defobj(module, ROUTER(STATE))
@@ -138,7 +148,7 @@ var ENGINE = ud.defonce(module, function () {
   document.title = 'The Red Lab'
    // CSS RESET
   document.body.style.margin    = 0
-  document.body.style.backgroundColor = '#000'
+  document.body.style.backgroundColor = '#fff'
   // UPDATE DOM
   document.body.appendChild(loop.target)
   return loop
