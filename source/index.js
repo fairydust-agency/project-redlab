@@ -61,6 +61,15 @@ var STATE = ud.defonce(module, function initialize (){
       DATA STATE
     **************************************************************************/
     data      : {
+      title     : 'the red lab',
+      page      : {
+        home      : {
+          slider    : [{
+            normal: 'assets/header_red_muster.jpg',
+            retina: 'assets/header_red_muster@2x.jpg'
+          }]
+        }
+      },
       submenu   : [{
         link  : '/#products/learning-experience',
         name  : 'Innovation Experience'
@@ -155,7 +164,7 @@ var ENGINE = ud.defonce(module, function () {
   console.log('INITIALIZE ENGINE')
   clearTimeout(id)
   var loop = main(STATE, RENDER, vdom)
-  document.title = 'The Red Lab'
+  document.title = STATE.data.title
    // CSS RESET
   document.body.style.margin    = 0
   document.body.style.backgroundColor = '#fff'
