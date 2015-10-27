@@ -45,8 +45,12 @@ var STATE = ud.defonce(module, function initialize (){
         white       : 'hsla(255, 100%, 100%, 1   )',
         black       : 'hsla(0  , 0%  , 0%  , 1   )',
       },
+      header    : {
+        width       : '940'
+      },
       font      : {
-        hnul        : 'HelveticaNeue-Light'
+        hnul        : 'HelveticaNeue-Light',
+        sizeA       : '15'
       }
     },
     /**************************************************************************
@@ -59,13 +63,19 @@ var STATE = ud.defonce(module, function initialize (){
     data      : {
       submenu   : [{
         link  : '/#products/learning-experience',
-        name  : 'Learning Experience'
+        name  : 'Innovation Experience'
       },{
         link  : '/#products/female-leadership',
-        name  : 'Female Leadership'
+        name  : 'Learning Journey'
+      },{
+        link  : '/#products/female-leadership',
+        name  : 'Digital Leadership Program'
+      },{
+        link  : '/#products/female-leadership',
+        name  : 'Female Leadership Experience'
       },{
         link  : '/#products/book',
-        name  : 'Buch'
+        name  : 'Women in Leadership Program'
       }],
       counter   : 0
     }
