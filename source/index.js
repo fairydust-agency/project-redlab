@@ -64,10 +64,26 @@ var STATE = ud.defonce(module, function initialize (){
       title     : 'the red lab',
       page      : {
         home      : {
-          slider    : [{
-            normal: 'assets/header_red_muster.jpg',
-            retina: 'assets/header_red_muster@2x.jpg'
-          }]
+          slider    : {
+            width     : '1200px',
+            slides    : [{
+              title     : 'we enable growth',
+              normal    : 'assets/header_red_muster.jpg',
+              retina    : 'assets/header_red_muster@2x.jpg'
+            },{
+              title     : 'Innovation',
+              normal    : 'assets/header_blue_wolken.jpg',
+              retina    : 'assets/header_blue_wolken@2x.jpg'
+            },{
+              title     : 'Transformation',
+              normal    : 'assets/header_red_vögel_weiss.jpg',
+              retina    : 'assets/header_red_vögel_weiss@2x.jpg'
+            },{
+              title     : 'Leadership',
+              normal    : 'assets/header_orange_3.jpg',
+              retina    : 'assets/header_orange_3@2x.jpg'
+            }]
+          }
         }
       },
       submenu   : [{

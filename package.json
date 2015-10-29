@@ -5,7 +5,7 @@
     "start": "ecstatic --root public/browser & npm run watch",
     "watch": "watchify source/index.js -p [ browserify-hmr -h $(my-local-ip) -u http://$(my-local-ip):3123 ] -p ghostmodeify -t babelify -o public/browser/bundle.js -dv",
     "bundle": "browserify source/index.js -t babelify -o public/browser/bundle.js -dv",
-    "refresh-assets": "cpy source/assets/**/* public/browser/assets/ && gaze 'cpy $path public/browser/assets/' source/assets/**/*"
+    "refresh-assets": "sync-files --watch source/assets/ public/browser/assets/"
   },
   "repository": {
     "type": "git",
@@ -20,11 +20,14 @@
   "dependencies": {
     "browserify-hmr": "^0.3.1",
     "catch-links": "^2.0.0",
+    "defined": "^1.0.0",
+    "getval": "^1.0.0",
     "is-retina": "^1.0.3",
     "jss": "^2.3.4",
     "jss-cli": "^1.1.0",
     "main-loop": "^3.2.0",
     "routes": "^2.1.0",
+    "setval": "^1.0.2",
     "single-page-hash": "^1.0.0",
     "ud": "^2.0.2",
     "virtual-dom": "^2.1.1",
@@ -34,9 +37,9 @@
     "babelify": "^6.3.0",
     "browserify": "^11.2.0",
     "ecstatic": "^1.1.3",
-    "gaze-cli": "^0.2.0",
     "ghostmodeify": "^0.1.1",
     "my-local-ip": "^1.0.0",
+    "sync-files": "^1.0.3",
     "watchify": "^3.4.0"
   }
 }
