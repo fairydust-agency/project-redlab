@@ -2,7 +2,7 @@
 var ud          = require('ud')
 var vdom        = require('virtual-dom')
 var h           = require('virtual-hyperscript-hook')(require('virtual-dom/h'))
-var main        = require('main-loop')
+var vraf        = require('virtual-raf')
 var singlepage  = require('single-page-hash')
 var catchlinks  = require('catch-links')
 
@@ -30,6 +30,14 @@ var STATE = ud.defonce(module, function initialize (){
     **************************************************************************/
     theme     : {
       colors    : {
+        whiteblue   : 'hsla(189, 78% , 98% , 1   )',
+        lightblue   : 'hsla(180, 43% , 79% , 1   )',
+        otherorange : 'hsla(24 , 84% , 50% , 1   )',
+        mediumgrey  : 'hsla(210, 6%  , 58% , 1   )',
+        darkgrey    : 'hsla(222, 5%  , 54% , 1   )',
+        darkergrey  : 'hsla(210, 5%  , 29% , 1   )',
+        lightgrey   : 'hsla(0  , 0%  , 95% , 1   )',
+
         grey        : 'hsla(0  , 0%  , 69% , 1   )',
         cyangrey    : 'hsla(166, 36% , 79% , 1   )',
         cyantrans   : 'hsla(182, 42% , 68% , 0.6 )',
@@ -49,8 +57,24 @@ var STATE = ud.defonce(module, function initialize (){
         width       : '940'
       },
       font      : {
-        hnul        : 'HelveticaNeue-Light',
-        sizeA       : '15'
+        avenir      : {
+          small       : {
+            family      : 'Avenir Light',
+            size        : '15'
+          },
+          roman      : {
+            family      : 'Avenir Roman',
+            size        : '15'
+          },
+          medium      : {
+            family      : 'Avenir Medium',
+            size        : '20'
+          },
+          big         : {
+            family      : 'Avenir Heavy',
+            size        : '28'
+          }
+        }
       }
     },
     /**************************************************************************
@@ -61,7 +85,40 @@ var STATE = ud.defonce(module, function initialize (){
       DATA STATE
     **************************************************************************/
     data      : {
+      team      : [{
+        normal: 'assets/team_bianca.png',
+        retina: 'assets/team_bianca@2x.png'
+      },{
+        normal: 'assets/team_stefanie.png',
+        retina: 'assets/team_stefanie@2x.png'
+      },{
+        normal: 'assets/team_christine.png',
+        retina: 'assets/team_christine@2x.png'
+      }],
       title     : 'the red lab',
+      subtitle  : 'we enable growth',
+      logo      : {
+        normal    : 'assets/topbar_logo_small.png',
+        retina    : 'assets/topbar_logo_small@2x.png',
+      },
+      innovation  : {
+        icon        : {
+          normal      : 'assets/pictogram_innovation.png',
+          retina      : 'assets/pictogram_innovation@2x.png'
+        }
+      },
+      transform  : {
+        icon        : {
+          normal      : 'assets/pictogram_transformation.png',
+          retina      : 'assets/pictogram_transformation@2x.png'
+        }
+      },
+      leadership  : {
+        icon        : {
+          normal      : 'assets/pictogram_leadership.png',
+          retina      : 'assets/pictogram_leadership@2x.png'
+        }
+      },
       page      : {
         home      : {
           slider    : {
@@ -179,12 +236,12 @@ var ENGINE = ud.defonce(module, function () {
   })) // js update: location.href = 'new url'
   console.log('INITIALIZE ENGINE')
   clearTimeout(id)
-  var loop = main(STATE, RENDER, vdom)
+  var tree = vraf(STATE, RENDER, vdom)
   document.title = STATE.data.title
    // CSS RESET
-  document.body.style.margin    = 0
-  document.body.style.backgroundColor = '#fff'
+  document.body.style.margin = 0
+  document.body.style.backgroundColor = STATE.theme.colors.whiteblue
   // UPDATE DOM
-  document.body.appendChild(loop.target)
-  return loop
+  document.body.appendChild(tree())
+  return tree
 }, 'ENGINE')

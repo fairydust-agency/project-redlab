@@ -25,13 +25,13 @@
     "is-retina": "^1.0.3",
     "jss": "^2.3.4",
     "jss-cli": "^1.1.0",
-    "main-loop": "^3.2.0",
     "routes": "^2.1.0",
     "setval": "^1.0.2",
     "single-page-hash": "^1.0.0",
     "ud": "^2.0.2",
     "virtual-dom": "^2.1.1",
-    "virtual-hyperscript-hook": "^1.0.0"
+    "virtual-hyperscript-hook": "^1.0.0",
+    "virtual-raf": "^2.0.3"
   },
   "devDependencies": {
     "babelify": "^6.3.0",
