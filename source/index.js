@@ -88,22 +88,58 @@ var STATE = ud.defonce(module, function initialize (){
       DATA STATE
     **************************************************************************/
     data      : {
+      socialmedia : {
+        email       : {
+          normal    : 'assets/socialmedia/footer_button_email.png',
+          retina    : 'assets/socialmedia/footer_button_email@2x.png'
+        },
+        facebook    : {
+          normal    : 'assets/socialmedia/footer_button_fb.png',
+          retina    : 'assets/socialmedia/footer_button_fb@2x.png'
+        },
+        twitter     : {
+          normal    : 'assets/socialmedia/footer_button_twitter.png',
+          retina    : 'assets/socialmedia/footer_button_twitter@2x.png'
+        },
+        linkedin    : {
+          normal    : 'assets/socialmedia/footer_button_linkedin.png',
+          retina    : 'assets/socialmedia/footer_button_linkedin@2x.png'
+        },
+        xing        : {
+          normal    : 'assets/socialmedia/footer_button_xing.png',
+          retina    : 'assets/socialmedia/footer_button_xing@2x.png'
+        },
+        instagram   : {
+          normal    : 'assets/socialmedia/footer_button_instagram.png',
+          retina    : 'assets/socialmedia/footer_button_instagram@2x.png'
+        }
+      },
+      logo      : {
+        topbar    : {
+          normal    : 'assets/logo/topbar_logo_small.png',
+          retina    : 'assets/logo/topbar_logo_small@2x.png'
+        },
+        banner    : {
+          normal    : 'assets/logo/logo_header.png',
+          retina    : 'assets/logo/logo_header@2x.png'
+        },
+        solo      : {
+          normal    : 'assets/logo/redlabR.svg',
+          retina    : 'assets/logo/redlabR.svg'
+        }
+      },
       team      : [{
-        normal: 'assets/team_bianca.png',
-        retina: 'assets/team_bianca@2x.png'
+        normal: 'assets/team/team_bianca.png',
+        retina: 'assets/team/team_bianca@2x.png'
       },{
-        normal: 'assets/team_stefanie.png',
-        retina: 'assets/team_stefanie@2x.png'
+        normal: 'assets/team/team_stefanie.png',
+        retina: 'assets/team/team_stefanie@2x.png'
       },{
-        normal: 'assets/team_christine.png',
-        retina: 'assets/team_christine@2x.png'
+        normal: 'assets/team/team_christine.png',
+        retina: 'assets/team/team_christine@2x.png'
       }],
       title     : 'the red lab',
       subtitle  : 'we enable growth',
-      logo      : {
-        normal    : 'assets/topbar_logo_small.png',
-        retina    : 'assets/topbar_logo_small@2x.png',
-      },
       innovation  : {
         icon        : {
           normal      : 'assets/pictogram_innovation.png',
