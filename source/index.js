@@ -201,13 +201,31 @@ var STATE = ud.defonce(module, function initialize (){
       counter   : 0
     }
   }
-  s = s ? s : styling(`
+  s = styling(`
     @font-face {
-      font-family : "${state.theme.font.hnul}";
-      src         : url(assets/${state.theme.font.hnul}.woff);
+      font-family : "${state.theme.font.avenir.roman.family}";
+      src         : url(assets/font/AvenirRoman.otf);
     }
   `)
-
+  s = styling(`
+    @font-face {
+      font-family : "${state.theme.font.avenir.small.family}";
+      src         : url(assets/font/AvenirHeavy.otf);
+    }
+  `)
+  s = styling(`
+    @font-face {
+      font-family : "${state.theme.font.avenir.medium.family}";
+      src         : url(assets/font/AvenirHeavy.otf);
+    }
+  `)
+  s = styling(`
+    @font-face {
+      font-family : "${state.theme.font.avenir.big.family}";
+      src         : url(assets/font/AvenirHeavy.otf);
+    }
+  `)
+  
   return state
 }, 'STATE')
 
