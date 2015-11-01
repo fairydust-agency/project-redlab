@@ -31,12 +31,15 @@ var STATE = ud.defonce(module, function initialize (){
     theme     : {
       colors    : {
         whiteblue   : 'hsla(189, 78% , 98% , 1   )',
+        bluegrey    : 'hsla(208, 19% , 87% , 1   )',
+
         lightblue   : 'hsla(180, 43% , 79% , 1   )',
         otherorange : 'hsla(24 , 84% , 50% , 1   )',
+        lightgrey   : 'hsla(0  , 0%  , 95% , 1   )',
+        mediumgrey2 : 'hsla(213, 5%  , 62% , 1   )',
         mediumgrey  : 'hsla(210, 6%  , 58% , 1   )',
         darkgrey    : 'hsla(222, 5%  , 54% , 1   )',
         darkergrey  : 'hsla(210, 5%  , 29% , 1   )',
-        lightgrey   : 'hsla(0  , 0%  , 95% , 1   )',
 
         grey        : 'hsla(0  , 0%  , 69% , 1   )',
         cyangrey    : 'hsla(166, 36% , 79% , 1   )',
@@ -144,19 +147,19 @@ var STATE = ud.defonce(module, function initialize (){
         }
       },
       submenu   : [{
-        link  : '/#products/learning-experience',
-        name  : 'Innovation Experience'
+        link  : '/#products/innovation',
+        name  : 'Innovation'
       },{
-        link  : '/#products/female-leadership',
-        name  : 'Learning Journey'
+        link  : '/#products/transformation',
+        name  : 'Transformation'
       },{
-        link  : '/#products/female-leadership',
+        link  : '/#products/digital-leadership',
         name  : 'Digital Leadership Program'
       },{
         link  : '/#products/female-leadership',
         name  : 'Female Leadership Experience'
       },{
-        link  : '/#products/book',
+        link  : '/#products/leadership-program',
         name  : 'Women in Leadership Program'
       }],
       counter   : 0
