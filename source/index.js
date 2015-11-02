@@ -51,7 +51,7 @@ var STATE = ud.defonce(module, function initialize (){
         darkorange  : 'hsla(11 , 81% , 49% , 1   )',
         roselight   : 'hsla(358, 84% , 47% , 0.71)',
         rose        : 'hsla(0  , 78% , 56% , 1   )',
-        red         : 'hsla(3  , 85% , 48% , 1   )',
+        red         : 'hsla(3  , 80% , 49% , 1   )',
         magenta     : 'hsla(350, 78% , 50% , 1   )',
         white       : 'hsla(255, 100%, 100%, 1   )',
         black       : 'hsla(0  , 0%  , 0%  , 1   )',
@@ -60,24 +60,15 @@ var STATE = ud.defonce(module, function initialize (){
         width       : '940'
       },
       font      : {
-        avenir      : {
-          small       : {
-            family      : 'Avenir Light',
-            size        : '15'
-          },
-          roman      : {
-            family      : 'Avenir Roman',
-            size        : '15'
-          },
-          medium      : {
-            family      : 'Avenir Medium',
-            size        : '20'
-          },
-          big         : {
-            family      : 'Avenir Heavy',
-            size        : '28'
-          }
-        }
+        avenirRoman   : 'Avenir Roman',
+        avenirHeavy   : 'Avenir Heavy',
+        avenirMedium  : 'Avenir Medium',
+        avenirOblique : 'Avenir Oblique',
+        small         : '15',
+        bigsmall      : '18',
+        medium        : '25',
+        large         : '28',
+        giant         : '34'
       }
     },
     /**************************************************************************
@@ -203,29 +194,29 @@ var STATE = ud.defonce(module, function initialize (){
   }
   s = styling(`
     @font-face {
-      font-family : "${state.theme.font.avenir.roman.family}";
+      font-family : "${state.theme.font.avenirRoman}";
       src         : url(assets/font/AvenirRoman.otf);
     }
   `)
   s = styling(`
     @font-face {
-      font-family : "${state.theme.font.avenir.small.family}";
+      font-family : "${state.theme.font.avenirHeavy}";
       src         : url(assets/font/AvenirHeavy.otf);
     }
   `)
   s = styling(`
     @font-face {
-      font-family : "${state.theme.font.avenir.medium.family}";
-      src         : url(assets/font/AvenirHeavy.otf);
+      font-family : "${state.theme.font.avenirMedium}";
+      src         : url(assets/font/AvenirLight.otf);
     }
   `)
   s = styling(`
     @font-face {
-      font-family : "${state.theme.font.avenir.big.family}";
-      src         : url(assets/font/AvenirHeavy.otf);
+      font-family : "${state.theme.font.avenirOblique}";
+      src         : url(assets/font/AvenirOblique.otf);
     }
   `)
-  
+
   return state
 }, 'STATE')
 
