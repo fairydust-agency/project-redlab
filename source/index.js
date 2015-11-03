@@ -131,6 +131,12 @@ var STATE = ud.defonce(module, function initialize (){
       }],
       title     : 'the red lab',
       subtitle  : 'we enable growth',
+      _page_main: [
+        { subtitle: 'we enable growth' },
+        { subtitle: 'Innovation' },
+        { subtitle: 'Transformation' },
+        { subtitle: 'Leadership' }
+      ],
       innovation  : {
         icon        : {
           normal      : 'assets/pictogram_innovation.png',
