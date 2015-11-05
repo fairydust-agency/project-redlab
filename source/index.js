@@ -65,7 +65,7 @@ var STATE = ud.defonce(module, function initialize (){
         avenirMedium  : 'Avenir Medium',
         avenirOblique : 'Avenir Oblique',
         small         : '15',
-        bigsmall      : '18',
+        bigsmall      : '17',
         medium        : '25',
         large         : '28',
         giant         : '34'
